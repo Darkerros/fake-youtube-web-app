@@ -1,0 +1,15 @@
+.app {
+    background: var(--background);
+    min-height: 100vh;
+}
+
+.app_theme_light {
+    --background: white;
+    --background-header: rgb(23, 23, 23);
+}
+
+.app_theme_dark {
+    --background: #0c0c0c;
+    --background-header: rgb(23, 23, 23);
+}
+
