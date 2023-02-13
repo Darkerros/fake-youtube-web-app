@@ -2,7 +2,7 @@
   "name": "fake-youtube-web-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "./fake-youtube-web-app",
+  "homepage": "https://darkerros.github.io/fake-youtube-web-app/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.2",
     "@testing-library/jest-dom": "^5.16.5",
