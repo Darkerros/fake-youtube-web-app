@@ -11,29 +11,68 @@ export type SearchResponseType = {
     regionCode: string
 }
 
-export type SearchResourceType = {
+export type SearchResourceType = SearchVideoResourceType | SearchChannelResourceType | SearchPlaylistResourceType
+
+export type SearchVideoResourceType = {
     kind: "youtube#searchResult",
     etag: string,
     id: {
-        kind: string,
-        videoId: string,
-        channelId: string,
-        playlistId: string
+        kind: "youtube#video",
+        videoId: string
     },
     snippet: {
-        publishedAt: Date,
+        publishedAt: string,
         channelId: string,
         title: string,
         description: string,
         thumbnails: {
-            (key:string): {
-                url: string,
-                width: number,
-                height: number
-            }
+            (key?: "default" | "medium" | "high"): { url: string, width: number, height: number }
         },
         channelTitle: string,
-        liveBroadcastContent: string
+        liveBroadcastContent: string,
+        publishTime: string
+    }
+}
+
+export type SearchPlaylistResourceType = {
+    kind: "youtube#searchResult",
+    etag: string
+    id: {
+        kind: "youtube#playlist",
+        playlistId: string
+    },
+    "snippet": {
+        publishedAt: string,
+        channelId: string,
+        title: string,
+        description: string,
+        thumbnails: {
+            (key?: "default" | "medium" | "high"): { url: string, width: number, height: number }
+        },
+        "channelTitle": string,
+        "liveBroadcastContent": string,
+        "publishTime": string
+    }
+}
+
+export type SearchChannelResourceType = {
+    kind: "youtube#searchResult",
+    etag: string,
+    id: {
+        kind: "youtube#channel",
+        channelId: string
+    },
+    snippet: {
+        publishedAt: string,
+        channelId: string,
+        title: string,
+        description: string,
+        thumbnails: {
+            (key?: "default" | "medium" | "high"): { url: string, width: number, height: number }
+        },
+        channelTitle: string,
+        liveBroadcastContent: string,
+        publishTime: string
     }
 }
 
@@ -43,8 +82,8 @@ export type VideosResponseType = {
     nextPageToken: string,
     prevPageToken: string,
     pageInfo: {
-    totalResults: number,
-    resultsPerPage: number
+        totalResults: number,
+        resultsPerPage: number
     },
     items: VideoResourceType[]
 }
@@ -59,7 +98,7 @@ export type VideoResourceType = {
         title: string,
         description: string,
         thumbnails: {
-            (key:string): {
+            (key: string): {
                 url: string,
                 width: number,
                 height: number
