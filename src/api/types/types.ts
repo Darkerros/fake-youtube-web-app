@@ -76,6 +76,92 @@ export type SearchChannelResourceType = {
     }
 }
 
+export type ChannelResponseType = {
+    kind: "youtube#channelListResponse",
+    etag: string,
+    nextPageToken: string,
+    prevPageToken: string,
+    pageInfo: {
+        totalResults: number,
+        resultsPerPage: number
+    },
+    items: ChannelResourceType[]
+}
+
+export type ChannelResourceType = {
+    kind: "youtube#channel",
+    etag: string,
+    id: string,
+    snippet: {
+        title: string,
+        description: string,
+        customUrl: string,
+        publishedAt: Date,
+        thumbnails: thumbnailsType,
+        defaultLanguage: string,
+        localized: {
+            title: string,
+            description: string
+        },
+        country: string
+    },
+    contentDetails: {
+        relatedPlaylists: {
+            likes: string,
+            favorites: string,
+            uploads: string
+        }
+    },
+    statistics: {
+        viewCount: number,
+        subscriberCount: number,  // this value is rounded to three significant figures
+        hiddenSubscriberCount: boolean,
+        videoCount: number
+    },
+    topicDetails: {
+        topicIds: [
+            string
+        ],
+        topicCategories: [
+            string
+        ]
+    },
+    status: {
+        privacyStatus: string,
+        isLinked: boolean,
+        longUploadsStatus: string,
+        madeForKids: boolean,
+        selfDeclaredMadeForKids: boolean
+    },
+    brandingSettings: {
+        channel: {
+            title: string,
+            description: string,
+            keywords: string,
+            trackingAnalyticsAccountId: string,
+            moderateComments: boolean,
+            unsubscribedTrailer: string,
+            defaultLanguage: string,
+            country: string
+        },
+        watch: {
+            textColor: string,
+            backgroundColor: string,
+            featuredPlaylistId: string
+        }
+    },
+    auditDetails: {
+        "overallGoodStanding": boolean,
+        "communityGuidelinesGoodStanding": boolean,
+        "copyrightStrikesGoodStanding": boolean,
+        "contentIdClaimsGoodStanding": boolean
+    },
+    contentOwnerDetails: {
+        contentOwner: string,
+        timeLinked: Date
+    },
+}
+
 export type VideosResponseType = {
     kind: "youtube#videoListResponse",
     etag: string,
