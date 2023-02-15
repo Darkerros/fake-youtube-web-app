@@ -11,6 +11,12 @@ export type SearchResponseType = {
     regionCode: string
 }
 
+type thumbnailsType = {
+    default?: { url: string, width: number, height: number }
+    medium?: { url: string, width: number, height: number }
+    high?: { url: string, width: number, height: number }
+}
+
 export type SearchResourceType = SearchVideoResourceType | SearchChannelResourceType | SearchPlaylistResourceType
 
 export type SearchVideoResourceType = {
@@ -25,9 +31,7 @@ export type SearchVideoResourceType = {
         channelId: string,
         title: string,
         description: string,
-        thumbnails: {
-            (key?: "default" | "medium" | "high"): { url: string, width: number, height: number }
-        },
+        thumbnails: thumbnailsType,
         channelTitle: string,
         liveBroadcastContent: string,
         publishTime: string
@@ -46,9 +50,7 @@ export type SearchPlaylistResourceType = {
         channelId: string,
         title: string,
         description: string,
-        thumbnails: {
-            (key?: "default" | "medium" | "high"): { url: string, width: number, height: number }
-        },
+        thumbnails: thumbnailsType,
         "channelTitle": string,
         "liveBroadcastContent": string,
         "publishTime": string
@@ -67,9 +69,7 @@ export type SearchChannelResourceType = {
         channelId: string,
         title: string,
         description: string,
-        thumbnails: {
-            (key?: "default" | "medium" | "high"): { url: string, width: number, height: number }
-        },
+        thumbnails: thumbnailsType,
         channelTitle: string,
         liveBroadcastContent: string,
         publishTime: string
@@ -97,13 +97,7 @@ export type VideoResourceType = {
         channelId: string,
         title: string,
         description: string,
-        thumbnails: {
-            (key: string): {
-                url: string,
-                width: number,
-                height: number
-            }
-        },
+        thumbnails: thumbnailsType,
         channelTitle: string,
         tags: [
             string
