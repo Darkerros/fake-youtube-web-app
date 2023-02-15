@@ -1,5 +1,5 @@
 import axios, {AxiosRequestConfig, AxiosResponse} from "axios";
-import {SearchResponseType, VideosResponseType} from "./types/types";
+import {ChannelResponseType, SearchResponseType, VideosResponseType} from "./types/types";
 
 enum METHOD {
     GET,
@@ -7,7 +7,7 @@ enum METHOD {
     DELETE
 }
 const API_BASE_URL = "https://www.googleapis.com/youtube/v3"
-const API_CLIENT_TOKEN = "AIzaSyBu9UrH2chr_PHOzf4U6A-oiaI6ZUz82PY"
+const API_CLIENT_TOKEN = "AIzaSyDaMCm6KP65A33wynsFBnIwMpdqY_wACMA"
 // const API_OAUTH_TOKEN = ""
 // const API_SECRET_TOKEN = ""
 
@@ -18,7 +18,9 @@ interface IApi {
     checkResponse: (resp: AxiosResponse) => Promise<any>
 
     search: () => Promise<SearchResponseType>
-    videos: () => Promise<VideosResponseType>
+    videos: (part: ("snippet" | "statistics" | "id")[]) => Promise<VideosResponseType>
+    getVideoById: (id:string) => Promise<VideosResponseType>
+    channel: (channelId: string) => Promise<ChannelResponseType>
 }
 
 export const api: IApi = {
@@ -29,7 +31,8 @@ export const api: IApi = {
             headers: {
 
             },
-            params: {key: API_CLIENT_TOKEN,maxResults: 50,...params}
+            //params: {access_token: USER_TOKEN,maxResults: 50,regionCode: "ru",...params}
+            params: {key: API_CLIENT_TOKEN,maxResults: 50,regionCode: "ru",...params}
         }
 
         switch (method) {
@@ -50,11 +53,19 @@ export const api: IApi = {
     checkResponse: (res) => res.data,
 
     search: () => {
-        return api.createReguest(METHOD.GET,"/search").then(api.checkResponse)
+        return api.createReguest(METHOD.GET,"/search",{part: "snippet,id"}).then(api.checkResponse)
     },
 
-    videos: () => {
-        return api.createReguest(METHOD.GET,"/videos",{chart:"mostPopular",part: "snippet,statistics,id"}).then(api.checkResponse)
+    videos: (part) => {
+        return api.createReguest(METHOD.GET,"/videos",{chart:"mostPopular",part: part.join(",")}).then(api.checkResponse)
+    },
+
+    getVideoById: (id) => {
+        return api.createReguest(METHOD.GET,"/videos",{id: id, part: "snippet,statistics,id"}).then(api.checkResponse)
+    },
+
+    channel: (channelId) => {
+        return api.createReguest(METHOD.GET,"/channels",{part: "snippet", id: channelId}).then(api.checkResponse)
     }
 
 }
