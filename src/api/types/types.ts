@@ -113,7 +113,7 @@ export type VideoResourceType = {
     },
 
     statistics: {
-        viewCount: string,
+        viewCount: number,
         likeCount: string,
         dislikeCount: string,
         favoriteCount: string,
