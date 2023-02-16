@@ -200,7 +200,7 @@ export type VideoResourceType = {
 
     statistics: {
         viewCount: number,
-        likeCount: string,
+        likeCount: number,
         dislikeCount: string,
         favoriteCount: string,
         commentCount: string
