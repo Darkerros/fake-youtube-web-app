@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+    gap: 10px;
+}
+
+.userImage {
+    width: 35px;
+    height: 35px;
+    min-width: 35px;
+    min-height: 35px;
+    border-radius: 50%;
+    background: #eaeaea;
+}
+.baseInfoContainer {
+    display: flex;
+    flex-direction: column;
+}
+.userName {
+    margin: 0;
+
+    font-size: 14px;
+    font-weight: bold;
+}
+.userSubscribers {
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+
+    color: #828282;
+    font-size: 12px;
+    font-weight: bold;
+}
+.userSubscribersIcon {
+    fill: #828282;
+    width: 15px;
+    height: 15px;
+}
