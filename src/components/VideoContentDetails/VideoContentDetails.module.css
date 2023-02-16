@@ -1,0 +1,36 @@
+.container {
+    margin-top: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+
+
+
+.videoAdditionalDetailsContainer {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.likeCount {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    font-weight: bold;
+}
+
+.viewCount {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    font-weight: bold;
+}
