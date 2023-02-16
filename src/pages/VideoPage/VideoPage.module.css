@@ -1,0 +1,24 @@
+.container {
+    padding: 30px 50px;
+    display: flex;
+    gap: 25px;
+
+    margin: 0 auto;
+    max-width: 1920px;
+}
+
+.videoContentContainer {
+    width: 75%;
+}
+
+.title {
+    margin: 5px 0 0;
+    font-size: 16px;
+}
+
+
+
+.recommendationContainer {
+    width: 25%;
+    background: aliceblue;
+}
