@@ -65,7 +65,7 @@ export const api: IApi = {
     },
 
     channel: (channelId) => {
-        return api.createReguest(METHOD.GET,"/channels",{part: "snippet", id: channelId}).then(api.checkResponse)
+        return api.createReguest(METHOD.GET,"/channels",{part: "snippet,statistics", id: channelId}).then(api.checkResponse)
     }
 
 }
