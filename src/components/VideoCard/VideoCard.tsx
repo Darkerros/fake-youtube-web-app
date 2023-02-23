@@ -1,14 +1,13 @@
-import React, {FC, useCallback, useState} from 'react';
+import React, {FC, useCallback} from 'react';
 import styles from './VideoCard.module.css'
-import {ChannelResourceType, VideoResourceType} from "../../api/types/types";
 import {Link} from "react-router-dom";
+import {VideoResourceType} from "../../utils/types/api/resources/VideoResourceType";
 
 interface IProps {
     videoInfo:  VideoResourceType
 }
 
 const VideoCard:FC<IProps> = ({videoInfo}) => {
-    const [userInfo,setUserInfo] = useState<ChannelResourceType>()
     const formateViewCount = useCallback((viewCount: number) => {
         if (viewCount > 10000000) {
             return `${Math.round(viewCount/1000000)} млн просмотров`
@@ -29,9 +28,6 @@ const VideoCard:FC<IProps> = ({videoInfo}) => {
                 <img className={styles.image} src={videoInfo.snippet.thumbnails.medium?.url} alt=""/>
             </Link>
             <div className={styles.baseVideoDetailsContainer}>
-                <Link to={`/channel/${videoInfo.snippet.channelId}`} className={styles.link}>
-                    <img referrerPolicy={"no-referrer"} className={styles.userImage} src={userInfo?.snippet.thumbnails.medium?.url} alt=""/>
-                </Link>
                 <Link to={`/video/${videoInfo.id}`} className={styles.link}>
                     <h2 className={styles.title}>{videoInfo.snippet.title}</h2>
                 </Link>
