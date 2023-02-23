@@ -5,11 +5,17 @@
 
 .app_theme_light {
     --background: white;
-    --background-header: rgb(23, 23, 23);
+    --background-header: rgb(255, 255, 255);
+    --primary-text-color: black;
+    --secondary-text-color: #6a6a6a;
+    --third-text-color: #c1c1c1;
 }
 
 .app_theme_dark {
     --background: #0c0c0c;
     --background-header: rgb(23, 23, 23);
+    --primary-text-color: white;
+    --secondary-text-color: #797979;
+    --third-text-color: #2f2f2f;
 }
 
