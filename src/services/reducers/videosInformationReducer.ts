@@ -2,7 +2,7 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {VideoResourceType} from "../../utils/types/api/resources/VideoResourceType";
 import {getChannelVideosInfoByIdListThunk} from "../thunk/getChannelVideosInfoByIdListThunk";
 
-interface IChannelVideo {
+interface IVideoInformation {
     items: VideoResourceType[]
     isLoading: boolean,
     isFail: boolean,
@@ -10,7 +10,7 @@ interface IChannelVideo {
     errorMessage: string | null
 }
 
-const initialState: IChannelVideo = {
+const initialState: IVideoInformation = {
     items: [],
     isLoading: false,
     isFail: false,
@@ -18,8 +18,8 @@ const initialState: IChannelVideo = {
     errorMessage: null
 }
 
-const channelVideoSlice = createSlice({
-    name: "channelVideoSlice",
+const videosInformationSlice = createSlice({
+    name: "videosInformationSlice",
     initialState: initialState,
     reducers: {},
     extraReducers: (builder) => {
@@ -45,5 +45,5 @@ const channelVideoSlice = createSlice({
 })
 
 
-export const channelVideoReducer = channelVideoSlice.reducer
-export const channelVideoActions = channelVideoSlice.actions
+export const videosInformationReducer = videosInformationSlice.reducer
+export const videosInformationActions = videosInformationSlice.actions

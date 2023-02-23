@@ -4,7 +4,7 @@ import {channelReducer} from "./reducers/channelReducer";
 import {videoInfoReducer} from "./reducers/videoInfoReducer";
 import {videoRecomendReducer} from "./reducers/videoRecomendReducer";
 import {menuReducer} from "./reducers/muneReducer";
-import {channelVideoReducer} from "./reducers/channelVideoReducer";
+import {videosInformationReducer} from "./reducers/videosInformationReducer";
 import {searchChannelVideoReducer} from "./reducers/searchChannelVideoReducer";
 
 
@@ -15,7 +15,7 @@ const rootReducer = combineReducers({
     recomendVideos: videoRecomendReducer,
     menuState: menuReducer,
     searchChannelVideos: searchChannelVideoReducer,
-    channelVideos: channelVideoReducer
+    channelVideos: videosInformationReducer
 })
 
 export const store = configureStore({
