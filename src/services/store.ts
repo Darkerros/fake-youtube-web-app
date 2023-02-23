@@ -15,7 +15,7 @@ const rootReducer = combineReducers({
     recomendVideos: videoRecomendReducer,
     menuState: menuReducer,
     searchChannelVideos: searchChannelVideoReducer,
-    channelVideos: videosInformationReducer
+    videosInformation: videosInformationReducer
 })
 
 export const store = configureStore({
