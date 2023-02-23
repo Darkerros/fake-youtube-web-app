@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import styles from './Content.module.css'
-import {VideoResourceType} from "../../api/types/types";
 import VideoCard from "../VideoCard/VideoCard";
+import {VideoResourceType} from "../../utils/types/api/resources/VideoResourceType";
 
 interface IProps {
     items: VideoResourceType[]
