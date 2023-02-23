@@ -1,7 +1,7 @@
 import React, {FC, useCallback, useState} from 'react';
 import styles from "./VideoChannelInfo.module.css";
 import FollowerIcon from "../../ui/icons/FollowerIcon/FollowerIcon";
-import {ChannelResourceType} from "../../api/types/types";
+import {ChannelResourceType} from "../../utils/types/api/resources/ChannelResourceType";
 
 interface IProps {
     channelInfo: ChannelResourceType

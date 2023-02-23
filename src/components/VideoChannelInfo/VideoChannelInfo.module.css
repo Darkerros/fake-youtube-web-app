@@ -18,6 +18,7 @@
 .userName {
     margin: 0;
 
+    color: var(--primary-text-color);
     font-size: 14px;
     font-weight: bold;
 }
@@ -27,12 +28,12 @@
     display: flex;
     align-items: center;
 
-    color: #828282;
+    color: var(--secondary-text-color);
     font-size: 12px;
     font-weight: bold;
 }
 .userSubscribersIcon {
-    fill: #828282;
+    fill: var(--secondary-text-color);
     width: 15px;
     height: 15px;
 }
