@@ -13,12 +13,14 @@
 
 .title {
     margin: 5px 0 0;
+    color: var(--primary-text-color);
     font-size: 16px;
 }
 
-
-
 .recommendationContainer {
     width: 25%;
-    background: aliceblue;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
