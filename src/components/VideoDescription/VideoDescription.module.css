@@ -1,8 +1,22 @@
 .container {
-    background: rgba(248, 248, 248,0.05);
-    border-radius: 5px;
     margin: 5px 0;
     padding: 10px;
+
+    background: rgba(248, 248, 248,0.05);
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.lineContainer {
+    overflow: hidden;
+    max-height: 250px;
+}
+
+.open {
+    max-height: fit-content;
 }
 
 .stroke {
@@ -11,4 +25,18 @@
 
     color: var(--primary-text-color);
     font-weight: bold;
+}
+
+.button {
+    margin: 0 auto;
+    padding: 10px;
+
+    background: rgba(255,255,255,0.1);
+    border-radius: 5px;
+    border: none;
+
+    font-weight: bold;
+    color: var(--primary-text-color);
+
+    cursor: pointer;
 }

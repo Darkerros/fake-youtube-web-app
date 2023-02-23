@@ -1,4 +1,4 @@
-import React, {FC, memo, useCallback} from 'react';
+import React, {FC, memo, useCallback, useState} from 'react';
 import styles from './VideoDescription.module.css'
 
 interface IProps {
@@ -6,6 +6,8 @@ interface IProps {
 }
 
 const VideoDescription:FC<IProps> = memo(({description}) => {
+    const [isOpen,setIsOpen] = useState<boolean>(false)
+    const handleToggleOpen = useCallback(() => setIsOpen(prev => !prev),[])
     const formatDescriptionLine = useCallback((text: string, key?: string | number) => {
         const urlRegex = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#/%?=~_|!:,.;]*[-A-Z0-9+&@#/%=~_|])/ig;
         const url = text.match(urlRegex) as Array<string>
@@ -18,7 +20,10 @@ const VideoDescription:FC<IProps> = memo(({description}) => {
 
     return (
         <div className={styles.container}>
-            {description.split("\n").map((line,index) => line ? formatDescriptionLine(line,index) : <br key={index}/>)}
+            <div className={isOpen ? `${styles.lineContainer} ${styles.open}` : `${styles.lineContainer}`}>
+                {description.split("\n").map((line,index) => line ? formatDescriptionLine(line,index) : <br key={index}/>)}
+            </div>
+            <button className={styles.button} onClick={handleToggleOpen}>{isOpen ? "Свернуть" : "Развенрнуть"}</button>
         </div>
     );
 });
