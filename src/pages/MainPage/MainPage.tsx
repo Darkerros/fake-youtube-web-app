@@ -1,20 +1,22 @@
 import React, {useEffect, useState} from 'react';
 import styles from "./MainPage.module.css"
 import Content from "../../components/Content/Content";
-import {VideoResourceType} from "../../api/types/types";
-import {api} from "../../api/api";
+import {useAppSelector} from "../../hooks/redux/useAppSelector";
+import {useAppDispatch} from "../../hooks/redux/useAppDispatch";
+import {getFeedThunk} from "../../services/thunk/getFeedThunk";
 
 const MainPage = () => {
-    const [videoList, setVideoList] = useState<VideoResourceType[]>([])
+    const dispatch = useAppDispatch()
+    const videoList = useAppSelector(state => state.feed.items)
 
     useEffect(() => {
-        api.videos(["snippet","id","statistics"]).then(data => setVideoList(data.items))
+        dispatch(getFeedThunk({chart: "mostPopular"}))
     },[])
 
     return (
-        <main className={styles.container}>
+        <section className={styles.container}>
             <Content items={videoList}/>
-        </main>
+        </section>
     );
 };
 
