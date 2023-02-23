@@ -2,8 +2,9 @@ import {FC, useCallback} from 'react';
 import styles from "./VideoContentDetails.module.css";
 import LikeIcon from "../../ui/icons/LikeIcon/LikeIcon";
 import ViewIcon from "../../ui/icons/ViewIcon/ViewIcon";
-import {ChannelResourceType, VideoResourceType} from "../../api/types/types";
 import VideoChannelInfo from "../VideoChannelInfo/VideoChannelInfo";
+import {VideoResourceType} from "../../utils/types/api/resources/VideoResourceType";
+import {ChannelResourceType} from "../../utils/types/api/resources/ChannelResourceType";
 
 interface IProps {
     videoInfo: VideoResourceType,
@@ -22,8 +23,8 @@ const VideoContentDetails:FC<IProps> = ({videoInfo,channelInfo}) => {
         <div className={styles.container}>
             <VideoChannelInfo channelInfo={channelInfo}/>
             <div className={styles.videoAdditionalDetailsContainer}>
-                {videoInfo?.statistics.likeCount && <p className={styles.likeCount}><LikeIcon/>{formatCount(videoInfo?.statistics.likeCount)}</p>}
-                {videoInfo?.statistics.viewCount && <p className={styles.viewCount}><ViewIcon/>{formatCount(videoInfo?.statistics.viewCount)}</p>}
+                {videoInfo?.statistics.likeCount && <p className={styles.likeCount}><LikeIcon className={styles.icon}/>{formatCount(videoInfo?.statistics.likeCount)}</p>}
+                {videoInfo?.statistics.viewCount && <p className={styles.viewCount}><ViewIcon className={styles.icon}/>{formatCount(videoInfo?.statistics.viewCount)}</p>}
             </div>
         </div>
     );

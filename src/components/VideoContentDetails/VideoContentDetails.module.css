@@ -6,11 +6,6 @@
     justify-content: space-between;
 }
 
-
-
-
-
-
 .videoAdditionalDetailsContainer {
     display: flex;
     align-items: center;
@@ -23,6 +18,7 @@
     align-items: center;
     gap: 5px;
 
+    color: var(--secondary-text-color);
     font-weight: bold;
 }
 
@@ -32,5 +28,10 @@
     align-items: center;
     gap: 5px;
 
+    color: var(--secondary-text-color);
     font-weight: bold;
+}
+
+.icon {
+    fill: var(--secondary-text-color);
 }
