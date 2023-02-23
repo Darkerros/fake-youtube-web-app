@@ -1,5 +1,5 @@
 .container {
-    background: #f8f8f8;
+    background: rgba(248, 248, 248,0.05);
     border-radius: 5px;
     margin: 5px 0;
     padding: 10px;
@@ -9,6 +9,6 @@
     margin: 0;
     font-size: 14px;
 
-    color: #2f2f2f;
+    color: var(--primary-text-color);
     font-weight: bold;
 }
