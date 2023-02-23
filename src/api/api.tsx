@@ -1,37 +1,14 @@
-import axios, {AxiosRequestConfig, AxiosResponse} from "axios";
-import {ChannelResponseType, SearchResponseType, VideosResponseType} from "./types/types";
+import axios, {AxiosRequestConfig} from "axios";
+import {IApi} from "../utils/types/api/IApi";
+import {METHOD} from "../utils/types/api/METHOD";
 
-enum METHOD {
-    GET,
-    POST,
-    DELETE
-}
 const API_BASE_URL = "https://www.googleapis.com/youtube/v3"
 const API_CLIENT_TOKEN = "AIzaSyDaMCm6KP65A33wynsFBnIwMpdqY_wACMA"
-// const API_OAUTH_TOKEN = ""
-// const API_SECRET_TOKEN = ""
-
-
-interface IApi {
-    createReguest: (method: METHOD,endpoint: string, params ?: any ) => Promise<AxiosResponse>
-
-    checkResponse: (resp: AxiosResponse) => Promise<any>
-
-    search: () => Promise<SearchResponseType>
-    videos: (part: ("snippet" | "statistics" | "id")[]) => Promise<VideosResponseType>
-    getVideoById: (id:string) => Promise<VideosResponseType>
-    channel: (channelId: string) => Promise<ChannelResponseType>
-}
 
 export const api: IApi = {
 
     createReguest: (method, endpoint,params) => {
-
         const config: AxiosRequestConfig = {
-            headers: {
-
-            },
-            //params: {access_token: USER_TOKEN,maxResults: 50,regionCode: "ru",...params}
             params: {key: API_CLIENT_TOKEN,maxResults: 50,regionCode: "ru",...params}
         }
 
@@ -52,21 +29,37 @@ export const api: IApi = {
 
     checkResponse: (res) => res.data,
 
-    search: () => {
-        return api.createReguest(METHOD.GET,"/search",{part: "snippet,id"}).then(api.checkResponse)
+    search: (params) => {
+        return api.createReguest(METHOD.GET,"/search",{part: "snippet,id", ...params}).then(api.checkResponse)
     },
 
-    videos: (part) => {
-        return api.createReguest(METHOD.GET,"/videos",{chart:"mostPopular",part: part.join(",")}).then(api.checkResponse)
+    videos: (params) => {
+        return api.createReguest(METHOD.GET,"/videos",{...params,part: params.part?.length ? `snippet,statistics,id,${params.part.join(",")}` : "snippet,statistics,id"}).then(api.checkResponse)
     },
 
     getVideoById: (id) => {
         return api.createReguest(METHOD.GET,"/videos",{id: id, part: "snippet,statistics,id"}).then(api.checkResponse)
     },
 
+    getReccomendVideosByCategoryId: (categoryId) => {
+        return api.createReguest(METHOD.GET,"/videos",{videoCategoryId:categoryId,chart: "mostPopular", part: "snippet,statistics,id"}).then(api.checkResponse)
+    },
+
+    getVideoCommentsByVideoId: (videoId) => {
+        return api.createReguest(METHOD.GET,"/commentThreads",{part: "id,replies,snippet", videoId: videoId,order:"relevance",textFormat: "plainText"}).then(api.checkResponse)
+    },
+
     channel: (channelId) => {
-        return api.createReguest(METHOD.GET,"/channels",{part: "snippet,statistics", id: channelId}).then(api.checkResponse)
-    }
+        return api.createReguest(METHOD.GET,"/channels",{part: "snippet,statistics,contentDetails,topicDetails,brandingSettings", id: channelId}).then(api.checkResponse)
+    },
+
+    getChannelVideo:(channelId) => {
+        return api.createReguest(METHOD.GET,"/search",{part: "id",channelId: channelId,order: "date"}).then(api.checkResponse)
+    },
+
+    getVideosInformationByIdList: (idList) => {
+        return api.createReguest(METHOD.GET,"/videos",{id: idList.join(","), part: "snippet,statistics,id"}).then(api.checkResponse)
+    },
 
 }
 
