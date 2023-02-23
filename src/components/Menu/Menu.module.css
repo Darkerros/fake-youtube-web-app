@@ -1,0 +1,25 @@
+.menu {
+    padding: 10px 15px;
+    position: sticky;
+    left: 0;
+    top: 0;
+
+    width: 50px;
+    height: 100vh;
+    background: var(--background-header);
+
+    display: flex;
+    gap: 25px;
+    flex-direction: column;
+
+    overflow: hidden;
+}
+
+.active {
+    gap: 20px;
+    width: 150px;
+}
+
+.icon {
+    fill: white;
+}
