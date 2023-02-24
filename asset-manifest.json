@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.6d29bea2.css",
-    "main.js": "/static/js/main.a6418919.js",
-    "static/js/787.41ecf30b.chunk.js": "/static/js/787.41ecf30b.chunk.js",
-    "static/media/Manrope-Regular.ttf": "/static/media/Manrope-Regular.25323263b2aac026e777.ttf",
-    "static/media/Manrope-Bold.ttf": "/static/media/Manrope-Bold.15c3a2fdedaee1ebf773.ttf",
-    "index.html": "/index.html",
-    "main.6d29bea2.css.map": "/static/css/main.6d29bea2.css.map",
-    "main.a6418919.js.map": "/static/js/main.a6418919.js.map",
-    "787.41ecf30b.chunk.js.map": "/static/js/787.41ecf30b.chunk.js.map"
+    "main.css": "/fake-youtube/static/css/main.70d571a1.css",
+    "main.js": "/fake-youtube/static/js/main.39ace82f.js",
+    "static/js/787.41ecf30b.chunk.js": "/fake-youtube/static/js/787.41ecf30b.chunk.js",
+    "static/media/Manrope-Regular.ttf": "/fake-youtube/static/media/Manrope-Regular.25323263b2aac026e777.ttf",
+    "static/media/Manrope-Bold.ttf": "/fake-youtube/static/media/Manrope-Bold.15c3a2fdedaee1ebf773.ttf",
+    "index.html": "/fake-youtube/index.html",
+    "main.70d571a1.css.map": "/fake-youtube/static/css/main.70d571a1.css.map",
+    "main.39ace82f.js.map": "/fake-youtube/static/js/main.39ace82f.js.map",
+    "787.41ecf30b.chunk.js.map": "/fake-youtube/static/js/787.41ecf30b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6d29bea2.css",
-    "static/js/main.a6418919.js"
+    "static/css/main.70d571a1.css",
+    "static/js/main.39ace82f.js"
   ]
 }
