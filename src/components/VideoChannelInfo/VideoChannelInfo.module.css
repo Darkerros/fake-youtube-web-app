@@ -37,3 +37,22 @@
     width: 15px;
     height: 15px;
 }
+
+@media screen and (max-width: 468px){
+    .userImage {
+        width: 25px;
+        height: 25px;
+        min-width: 25px;
+        min-height: 25px;
+    }
+    .userName {
+        font-size: 10px;
+    }
+    .userSubscribers {
+        font-size: 8px;
+    }
+    .userSubscribersIcon {
+        width: 10px;
+        height: 10px;
+    }
+}

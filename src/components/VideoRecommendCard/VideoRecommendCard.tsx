@@ -13,7 +13,7 @@ const VideoRecommendCard:FC<IProps> = memo(({videoInfo}) => {
     const formateView = useViewsFormater()
 
     return (
-        <div className={styles.container}>
+        <li className={styles.container}>
             <Link to={`/video/${videoInfo.id}`} className={styles.link}>
                 <img className={styles.image} src={videoInfo.snippet.thumbnails.medium?.url} alt=""/>
             </Link>
@@ -26,7 +26,7 @@ const VideoRecommendCard:FC<IProps> = memo(({videoInfo}) => {
                 </Link>
                 <p className={styles.viewCount}><ViewIcon className={styles.viewCountIcon}/>{formateView(videoInfo.statistics.viewCount)}</p>
             </div>
-        </div>
+        </li>
     );
 });
 

@@ -23,7 +23,7 @@ const VideoCard:FC<IProps> = ({videoInfo}) => {
     },[])
 
     return (
-        <div className={styles.container}>
+        <li className={styles.container}>
             <Link to={`/video/${videoInfo.id}`} className={styles.link}>
                 <img className={styles.image} src={videoInfo.snippet.thumbnails.medium?.url} alt=""/>
             </Link>
@@ -38,7 +38,7 @@ const VideoCard:FC<IProps> = ({videoInfo}) => {
                 </Link>
                 <p className={styles.viewCount}>{formateViewCount(videoInfo.statistics.viewCount)}</p>
             </div>
-        </div>
+        </li>
     );
 };
 

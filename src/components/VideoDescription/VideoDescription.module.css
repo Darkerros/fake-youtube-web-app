@@ -40,3 +40,15 @@
 
     cursor: pointer;
 }
+
+@media screen and (max-width: 468px) {
+    .stroke {
+        font-size: 10px;
+    }
+    .lineContainer {
+        max-height: 100px;
+    }
+    .open {
+        max-height: fit-content;
+    }
+}

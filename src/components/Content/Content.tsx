@@ -9,9 +9,9 @@ interface IProps {
 
 const Content:FC<IProps> = ({items}) => {
     return (
-        <div className={styles.container}>
+        <ul className={styles.container}>
             {items.map(videoInfo => <VideoCard key={videoInfo.id} videoInfo={videoInfo}/>)}
-        </div>
+        </ul>
     );
 };
 

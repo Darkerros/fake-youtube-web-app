@@ -1,6 +1,7 @@
 .container {
     display: flex;
     gap: 10px;
+    width: 400px;
 }
 
 .image {
@@ -14,7 +15,7 @@
     flex-direction: column;
     gap: 5px;
 
-    max-width: 200px;
+    max-width: 190px;
 }
 
 .title {
@@ -49,7 +50,6 @@
     font-size: 12px;
     font-weight: bold;
 }
-
 .viewCountIcon {
     width: 16px;
     height: 16px;
@@ -60,8 +60,21 @@
     text-decoration: none;
     transition: all .3s ease-in-out;
 }
-
 .link:hover {
     transition: all .3s ease-in-out;
     opacity: 0.5;
+}
+
+@media screen and (max-width: 1280px) {
+    .container {
+        width: 300px;
+        flex-direction: column;
+    }
+    .image {
+        width: 300px;
+        height: 150px;
+    }
+    .infoContainer {
+        max-width: 300px;
+    }
 }

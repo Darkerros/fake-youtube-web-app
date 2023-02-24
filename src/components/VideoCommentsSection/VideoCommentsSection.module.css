@@ -3,6 +3,11 @@
 }
 
 .commentContainer {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -14,4 +19,12 @@
     color: var(--primary-text-color);
     font-weight: bold;
     font-size: 16px;
+}
+
+
+
+@media screen and (max-width: 468px){
+    .title {
+        font-size: 12px;
+    }
 }

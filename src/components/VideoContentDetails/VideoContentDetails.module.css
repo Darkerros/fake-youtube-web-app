@@ -35,3 +35,17 @@
 .icon {
     fill: var(--secondary-text-color);
 }
+
+
+@media screen and (max-width: 468px) {
+    .likeCount {
+        font-size: 12px;
+    }
+    .viewCount {
+        font-size: 12px;
+    }
+    .icon {
+        width: 12px;
+        height: 12px;
+    }
+}

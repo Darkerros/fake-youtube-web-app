@@ -18,9 +18,9 @@ const VideoCommentsSection: FC<IProps> = memo(({videoId}) => {
     return (
         <div className={styles.container}>
             <p className={styles.title}>Комментарии:</p>
-            <div className={styles.commentContainer}>
-                {commentsList.map(comment => <VideoCommentCard comment={comment}/>)}
-            </div>
+            <ul className={styles.commentContainer}>
+                {commentsList.map(comment => <VideoCommentCard comment={comment} key={comment.id}/>)}
+            </ul>
         </div>
     );
 });

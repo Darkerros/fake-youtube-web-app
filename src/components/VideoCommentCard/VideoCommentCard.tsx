@@ -17,7 +17,7 @@ const VideoCommentCard:FC<IProps> = memo(({comment}) => {
     const formatText = useCallback((text: string,lineClass?: string) => text.split("\n").map(line => <p className={lineClass}>{line}<br/></p>),[])
 
     return (
-        <div className={styles.container}>
+        <li className={styles.container}>
             <Link to={`/channel/${comment.snippet.topLevelComment.snippet.authorChannelId}`}  className={styles.link}>
                 {imageLoadFailState ? <span className={styles.image}/> : <img className={styles.image} src={comment.snippet.topLevelComment.snippet.authorProfileImageUrl} onError={handleImageLoadError} alt=""/>}
             </Link>
@@ -32,7 +32,7 @@ const VideoCommentCard:FC<IProps> = memo(({comment}) => {
                     {formatText(comment.snippet.topLevelComment.snippet.textDisplay,styles.commentLine)}
                 </div>
             </div>
-        </div>
+        </li>
     );
 });
 

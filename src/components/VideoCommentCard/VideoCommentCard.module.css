@@ -67,3 +67,25 @@
     transition: all ease-in-out .3s;
     opacity: 0.5;
 }
+
+@media screen and (max-width: 468px){
+    .image {
+        min-width: 25px;
+        min-height: 25px;
+        width: 25px;
+        height: 25px;
+    }
+    .channelName {
+        font-size: 10px;
+    }
+    .likeCount {
+        font-size: 10px;
+    }
+    .likeCountIcon {
+        width: 10px;
+        height: 10px;
+    }
+    .commentLine {
+        font-size: 10px;
+    }
+}
