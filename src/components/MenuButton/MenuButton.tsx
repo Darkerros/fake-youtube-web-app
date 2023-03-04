@@ -6,6 +6,7 @@ import {menuActions} from "../../services/reducers/muneReducer";
 
 const MenuButton = () => {
     const dispatch = useAppDispatch()
+    // eslint-disable-next-line
     const handleClick = useCallback(() => dispatch(menuActions.togleMenu()),[])
 
     return (

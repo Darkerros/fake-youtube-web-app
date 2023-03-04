@@ -24,6 +24,7 @@ const VideoPage = () => {
         if ((id && !videoInfo) || (id && videoInfo?.id !== id)) {
             dispatch(getVideoByIdThunk(id))
         }
+        // eslint-disable-next-line
     }, [id])
 
     useEffect(() => {
@@ -31,7 +32,8 @@ const VideoPage = () => {
             dispatch(getChannelInfoThunk(videoInfo.snippet.channelId))
             dispatch(getRecomendVideoByCategoryIdThunk(videoInfo.snippet.categoryId))
         }
-    }, [videoInfo])
+        // eslint-disable-next-line
+    }, [videoInfo,channelInfo])
 
     useEffect(() => {
         const handelResize = () => setCurrentWith(window.screen.width)

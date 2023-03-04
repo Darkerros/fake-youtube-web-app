@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import styles from "./MainPage.module.css"
 import Content from "../../components/Content/Content";
 import {useAppSelector} from "../../hooks/redux/useAppSelector";
@@ -11,6 +11,7 @@ const MainPage = () => {
 
     useEffect(() => {
         dispatch(getFeedThunk({chart: "mostPopular"}))
+        // eslint-disable-next-line
     },[])
 
     return (

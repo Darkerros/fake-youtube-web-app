@@ -24,6 +24,7 @@ const CategoryPage = () => {
             dispatch(getChannelVideosInfoByIdListThunk({videoIdList: idList}))
         }
 
+        // eslint-disable-next-line
     },[searchVideoList])
 
     return (
